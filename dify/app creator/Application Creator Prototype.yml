@@ -1,0 +1,725 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Application Creator Prototype
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.2.7@b8a04c0155eb3b9d43ed1199b4387e7f67ef75ad63fcec466eab31a726e2c3a0
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: 1756820253386-source-1756824342559-target
+      selected: false
+      source: '1756820253386'
+      sourceHandle: source
+      target: '1756824342559'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1757075547683-source-1757077407622-target
+      source: '1757075547683'
+      sourceHandle: source
+      target: '1757077407622'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1757077407622-source-1756826359838-target
+      source: '1757077407622'
+      sourceHandle: source
+      target: '1756826359838'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1756826359838-source-1757079071922-target
+      source: '1756826359838'
+      sourceHandle: source
+      target: '1757079071922'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1757080929697-source-1756825484203-target
+      source: '1757080929697'
+      sourceHandle: source
+      target: '1756825484203'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: http-request
+      id: 1757079584477-source-1757082045123-target
+      source: '1757079584477'
+      sourceHandle: source
+      target: '1757082045123'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1757079071922-source-1757079584477-target
+      source: '1757079071922'
+      sourceHandle: source
+      target: '1757079584477'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1757082045123-source-1757084569421-target
+      source: '1757082045123'
+      sourceHandle: source
+      target: '1757084569421'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1757084569421-source-1757080929697-target
+      source: '1757084569421'
+      sourceHandle: source
+      target: '1757080929697'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 1756824342559-source-1757513100087-target
+      source: '1756824342559'
+      sourceHandle: source
+      target: '1757513100087'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1757513100087-source-1757517270098-target
+      source: '1757513100087'
+      sourceHandle: source
+      target: '1757517270098'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1757517270098-source-1757075547683-target
+      source: '1757517270098'
+      sourceHandle: source
+      target: '1757075547683'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: Query
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: Query
+      height: 90
+      id: '1756820253386'
+      position:
+        x: 112.73974947308864
+        y: 282
+      positionAbsolute:
+        x: 112.73974947308864
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Get DSL
+        type: http-request
+        url: https://raw.githubusercontent.com/ExperienceHunter/GenAI/main/dify/app%20creator/template/ChatBot%20Template.yml
+        variables: []
+      height: 188
+      id: '1756824342559'
+      position:
+        x: 463.62079608572833
+        y: 282
+      positionAbsolute:
+        x: 463.62079608572833
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1757080929697'
+          - text
+          value_type: string
+          variable: URL
+        selected: false
+        title: End
+        type: end
+      height: 90
+      id: '1756825484203'
+      position:
+        x: 2670.9736700520893
+        y: 282
+      positionAbsolute:
+        x: 2670.9736700520893
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config:
+            api_key: '{{#1757077407622.access_token#}}'
+            type: bearer
+          type: api-key
+        body:
+          data:
+          - id: key-value-714
+            key: ''
+            type: text
+            value: "{\n  \"mode\": \"yaml-content\",\n  \"yaml_content\": \"{{#1757517270098.dsl#}}\"\
+              \n}"
+          type: json
+        desc: ''
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Import DSL
+        type: http-request
+        url: http://docker-api-1:5001/console/api/apps/imports
+        variables: []
+      height: 140
+      id: '1756826359838'
+      position:
+        x: 1713.3327760850505
+        y: 282
+      positionAbsolute:
+        x: 1713.3327760850505
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-1552
+            key: ''
+            type: text
+            value: "{\n  \"email\": \"xzakwanzahidx@gmail.com\",\n  \"password\":\
+              \ \"Password123\"\n}\n\n"
+          type: json
+        desc: ''
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Login
+        type: http-request
+        url: http://docker-api-1:5001/console/api/login
+        variables: []
+      height: 140
+      id: '1757075547683'
+      position:
+        x: 1390.8524796330123
+        y: 282
+      positionAbsolute:
+        x: 1390.8524796330123
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(credential: str) -> dict:\n    # Parse the\
+          \ JSON string from the login node\n    body_json = json.loads(credential)\n\
+          \    \n    # Extract the access token\n    access_token = body_json.get(\"\
+          data\", {}).get(\"access_token\", \"\")\n    \n    return {\n        \"\
+          access_token\": access_token\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          access_token:
+            children: null
+            type: string
+        selected: false
+        title: Extract Access Token
+        type: code
+        variables:
+        - value_selector:
+          - '1757075547683'
+          - body
+          value_type: string
+          variable: credential
+      height: 54
+      id: '1757077407622'
+      position:
+        x: 1390.8524796330123
+        y: 486.6234342068039
+      positionAbsolute:
+        x: 1390.8524796330123
+        y: 486.6234342068039
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(response: str) -> dict:\n    # Parse the JSON\
+          \ string from the import node\n    body_json = json.loads(response)\n  \
+          \  \n    # Extract the DSL id and App id\n    dsl_id = body_json.get(\"\
+          id\", \"\")\n    app_id = body_json.get(\"app_id\", \"\")\n    \n    return\
+          \ {\n        \"dsl_id\": dsl_id,\n        \"app_id\": app_id\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          app_id:
+            children: null
+            type: string
+          dsl_id:
+            children: null
+            type: string
+        selected: false
+        title: Extract App ID
+        type: code
+        variables:
+        - value_selector:
+          - '1756826359838'
+          - body
+          value_type: string
+          variable: response
+      height: 54
+      id: '1757079071922'
+      position:
+        x: 1713.3327760850505
+        y: 486.6234342068039
+      positionAbsolute:
+        x: 1713.3327760850505
+        y: 486.6234342068039
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config:
+            api_key: '{{#1757077407622.access_token#}}'
+            type: bearer
+          type: api-key
+        body:
+          data:
+          - id: key-value-1402
+            key: ''
+            type: text
+            value: "{\n  \"workflow_id\": \"{{#1757079071922.dsl_id#}}\"\n}\n"
+          type: json
+        desc: ''
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Publish Workflow
+        type: http-request
+        url: http://docker-api-1:5001/console/api/apps/{{#1757079071922.app_id#}}/workflows/publish
+        variables: []
+      height: 175
+      id: '1757079584477'
+      position:
+        x: 2037.1120176499264
+        y: 282
+      positionAbsolute:
+        x: 2037.1120176499264
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 622c6fb4-d4d1-4919-8ed2-d8d9390b1614
+          role: system
+          text: 'You are an assistant that gives out only the URL of an app.
+
+            The url is {{#1757084569421.public_url#}}. '
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757080929697'
+      position:
+        x: 2354.697448822345
+        y: 282
+      positionAbsolute:
+        x: 2354.697448822345
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config:
+            api_key: '{{#1757077407622.access_token#}}'
+            type: bearer
+          type: api-key
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: Content-Type:application/json
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Get Publish URL
+        type: http-request
+        url: http://docker-api-1:5001/console/api/apps/{{#1757079071922.app_id#}}
+        variables: []
+      height: 159
+      id: '1757082045123'
+      position:
+        x: 2037.1120176499264
+        y: 481.7516402280856
+      positionAbsolute:
+        x: 2037.1120176499264
+        y: 481.7516402280856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(response: str) -> dict:\n    # Parse the JSON\
+          \ string\n    body_json = json.loads(response)\n    \n    # Extract relevant\
+          \ IDs\n    dsl_id = body_json.get(\"id\", \"\")\n    app_id = body_json.get(\"\
+          app_id\", \"\")\n    \n    # Extract the public URL code\n    site = body_json.get(\"\
+          site\", {})\n    public_code = site.get(\"code\", \"\")\n    \n    # Construct\
+          \ the full public URL using localhost base\n    public_url = f\"http://localhost/chat/{public_code}\"\
+          \ if public_code else \"\"\n    \n    return {\n        \"dsl_id\": dsl_id,\n\
+          \        \"app_id\": app_id,\n        \"public_code\": public_code,\n  \
+          \      \"public_url\": public_url\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          app_id:
+            children: null
+            type: string
+          dsl_id:
+            children: null
+            type: string
+          public_code:
+            children: null
+            type: string
+          public_url:
+            children: null
+            type: string
+        selected: false
+        title: Extract URL
+        type: code
+        variables:
+        - value_selector:
+          - '1757082045123'
+          - body
+          value_type: string
+          variable: response
+      height: 54
+      id: '1757084569421'
+      position:
+        x: 2037.1120176499264
+        y: 683.6508199671407
+      positionAbsolute:
+        x: 2037.1120176499264
+        y: 683.6508199671407
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1756824342559'
+          - body
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 90ad1110-1692-4922-8b78-05c044ed7f29
+          role: system
+          text: 'You are an assistant that writes the content for a Dify LLM node''s
+            prompt_template.text.
+
+
+            You will receive:
+
+            1. The user''s request describing what to change: {{#1756820253386.Query#}}
+
+
+            Your task:
+
+            - Generate ONLY the text content that should go into `prompt_template.text`.
+
+            - Do NOT output any YAML, JSON, or code.
+
+            - Make the text clear, concise, and safe.
+
+            '
+        selected: false
+        structured_output_enabled: false
+        title: Edit DSL
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757513100087'
+      position:
+        x: 789.7192398730378
+        y: 282
+      positionAbsolute:
+        x: 789.7192398730378
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(dsl_template: str, llm_text: str) -> dict:\n    \"\"\"\n \
+          \   dsl_template: The DSL template as a string\n    llm_text: The text generated\
+          \ by the LLM\n    \"\"\"\n    # Find where the prompt_template text should\
+          \ go\n    search_str = \"prompt_template:\"\n    idx = dsl_template.find(search_str)\n\
+          \n    if idx != -1:\n        # Find the 'text:' field under prompt_template\n\
+          \        start_idx = dsl_template.find(\"text:\", idx)\n        end_idx\
+          \ = dsl_template.find(\"\\n        selected:\", start_idx)\n\n        if\
+          \ start_idx != -1 and end_idx != -1:\n            # Prepare the new text\
+          \ block with proper indentation\n            indent = \"              \"\
+          \n            new_text_block = f'text: |\\n{indent}{llm_text.replace(chr(10),\
+          \ chr(10)+indent)}'\n            # Replace the old text block with the new\
+          \ LLM text\n            dsl_template = dsl_template[:start_idx] + new_text_block\
+          \ + dsl_template[end_idx:]\n\n    return {\n        \"dsl\": dsl_template\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          dsl:
+            children: null
+            type: string
+        selected: false
+        title: Code 4
+        type: code
+        variables:
+        - value_selector:
+          - '1756824342559'
+          - body
+          value_type: string
+          variable: dsl_template
+        - value_selector:
+          - '1757513100087'
+          - text
+          value_type: string
+          variable: llm_text
+      height: 54
+      id: '1757517270098'
+      position:
+        x: 1090.8524796330123
+        y: 282
+      positionAbsolute:
+        x: 1090.8524796330123
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -28.592020769644023
+      y: 1.4467639157361418
+      zoom: 0.8824257984228254
