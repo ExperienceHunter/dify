@@ -3,7 +3,7 @@ app:
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
-  name: Application Creator Prototype
+  name: App Creator Prototype
   use_icon_as_answer_icon: false
 dependencies:
 - current_identifier: null
@@ -219,11 +219,11 @@ workflow:
       height: 90
       id: '1756820253386'
       position:
-        x: 112.73974947308864
-        y: 282
+        x: 30
+        y: 294
       positionAbsolute:
-        x: 112.73974947308864
-        y: 282
+        x: 30
+        y: 294
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -252,17 +252,17 @@ workflow:
           max_write_timeout: 0
         title: Get DSL
         type: http-request
-        url: https://raw.githubusercontent.com/ExperienceHunter/GenAI/main/dify/app%20creator/template/ChatBot%20Template.yml
+        url: https://raw.githubusercontent.com/ExperienceHunter/dify/refs/heads/main/dify/template/AI%20Powered%20Apps/ChatBot%20Template.yml?token=GHSAT0AAAAAADKL6JJHS6HUT4EGXAK45VX62GG3VNA
         variables: []
-      height: 188
+      height: 220
       id: '1756824342559'
       position:
-        x: 463.62079608572833
-        y: 282
+        x: 331.1428571428571
+        y: 294
       positionAbsolute:
-        x: 463.62079608572833
-        y: 282
-      selected: false
+        x: 331.1428571428571
+        y: 294
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -281,11 +281,11 @@ workflow:
       height: 90
       id: '1756825484203'
       position:
-        x: 2670.9736700520893
-        y: 282
+        x: 1866.5714285714284
+        y: 294
       positionAbsolute:
-        x: 2670.9736700520893
-        y: 282
+        x: 1866.5714285714284
+        y: 294
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -326,11 +326,11 @@ workflow:
       height: 140
       id: '1756826359838'
       position:
-        x: 1713.3327760850505
-        y: 282
+        x: 938.5714285714287
+        y: 294
       positionAbsolute:
-        x: 1713.3327760850505
-        y: 282
+        x: 938.5714285714287
+        y: 294
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -369,11 +369,11 @@ workflow:
       height: 140
       id: '1757075547683'
       position:
-        x: 1390.8524796330123
-        y: 282
+        x: 646.2857142857144
+        y: 294
       positionAbsolute:
-        x: 1390.8524796330123
-        y: 282
+        x: 646.2857142857144
+        y: 294
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -403,11 +403,11 @@ workflow:
       height: 54
       id: '1757077407622'
       position:
-        x: 1390.8524796330123
-        y: 486.6234342068039
+        x: 646.2857142857144
+        y: 449.71428571428567
       positionAbsolute:
-        x: 1390.8524796330123
-        y: 486.6234342068039
+        x: 646.2857142857144
+        y: 449.71428571428567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -440,11 +440,11 @@ workflow:
       height: 54
       id: '1757079071922'
       position:
-        x: 1713.3327760850505
-        y: 486.6234342068039
+        x: 938.5714285714287
+        y: 461.1428571428571
       positionAbsolute:
-        x: 1713.3327760850505
-        y: 486.6234342068039
+        x: 938.5714285714287
+        y: 461.1428571428571
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -484,11 +484,11 @@ workflow:
       height: 175
       id: '1757079584477'
       position:
-        x: 2037.1120176499264
-        y: 282
+        x: 1240.5714285714284
+        y: 294
       positionAbsolute:
-        x: 2037.1120176499264
-        y: 282
+        x: 1240.5714285714284
+        y: 294
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -503,7 +503,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gemini-2.5-flash
+          name: gemini-2.0-flash
           provider: langgenius/gemini/google
         prompt_template:
         - id: 622c6fb4-d4d1-4919-8ed2-d8d9390b1614
@@ -511,7 +511,7 @@ workflow:
           text: 'You are an assistant that gives out only the URL of an app.
 
             The url is {{#1757084569421.public_url#}}. '
-        selected: true
+        selected: false
         title: LLM
         type: llm
         variables: []
@@ -520,12 +520,12 @@ workflow:
       height: 90
       id: '1757080929697'
       position:
-        x: 2354.697448822345
-        y: 282
+        x: 1551.142857142857
+        y: 294
       positionAbsolute:
-        x: 2354.697448822345
-        y: 282
-      selected: true
+        x: 1551.142857142857
+        y: 294
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -560,11 +560,11 @@ workflow:
       height: 159
       id: '1757082045123'
       position:
-        x: 2037.1120176499264
-        y: 481.7516402280856
+        x: 1240.5714285714284
+        y: 508.28571428571433
       positionAbsolute:
-        x: 2037.1120176499264
-        y: 481.7516402280856
+        x: 1240.5714285714284
+        y: 508.28571428571433
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -607,11 +607,11 @@ workflow:
       height: 54
       id: '1757084569421'
       position:
-        x: 2037.1120176499264
-        y: 683.6508199671407
+        x: 1240.5714285714284
+        y: 695.4285714285713
       positionAbsolute:
-        x: 2037.1120176499264
-        y: 683.6508199671407
+        x: 1240.5714285714284
+        y: 695.4285714285713
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -628,30 +628,39 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gemini-2.5-flash
+          name: gemini-2.0-flash
           provider: langgenius/gemini/google
         prompt_template:
         - id: 90ad1110-1692-4922-8b78-05c044ed7f29
           role: system
-          text: 'You are an assistant that writes the content for a Dify LLM node''s
-            prompt_template.text.
-
-
-            You will receive:
-
-            1. The user''s request describing what to change: {{#1756820253386.Query#}}
-
-
-            Your task:
-
-            - Generate ONLY the text content that should go into `prompt_template.text`.
-
-            - Do NOT output any YAML, JSON, or code.
-
-            - Make the text clear, concise, and safe.
-
-            '
+          text: "You are an assistant that generates structured JSON output for a\
+            \ Dify LLM node.\n\nYou will receive:\n- The user's request describing\
+            \ what to change: {{#1756820253386.Query#}}\n\nYour task:\n- Generate\
+            \ ONLY a JSON object with two fields: \"title\" and \"prompt_template\"\
+            .\n- \"title\": A short, clear, relevant title based on the user's request.\n\
+            - \"prompt_template\": The system prompt text for the LLM, based on the\
+            \ user's request.\n\nOutput requirements:\n- JSON ONLY. No explanations,\
+            \ no extra text, no code fences.\n- Use double quotes for all keys and\
+            \ string values.\n- Include both fields exactly; no extra fields allowed.\n\
+            - Ensure valid JSON: properly escaped strings, no trailing commas.\n\n\
+            Example correct output:\n{\n  \"title\": \"Travel Helper Bot\",\n  \"\
+            prompt_template\": \"You are a helpful assistant that helps users plan\
+            \ trips.\"\n}\n"
         selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              prompt_template:
+                description: The system prompt text that will go into prompt_template.text.
+                type: string
+              title:
+                description: A short, clear, and relevant title for the chatbot.
+                type: string
+            required:
+            - title
+            - prompt_template
+            type: object
         structured_output_enabled: false
         title: Edit DSL
         type: llm
@@ -661,31 +670,44 @@ workflow:
       height: 90
       id: '1757513100087'
       position:
-        x: 789.7192398730378
-        y: 282
+        x: 331.1428571428571
+        y: 532.5714285714286
       positionAbsolute:
-        x: 789.7192398730378
-        y: 282
+        x: 331.1428571428571
+        y: 532.5714285714286
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "def main(dsl_template: str, llm_text: str) -> dict:\n    \"\"\"\n \
-          \   dsl_template: The DSL template as a string\n    llm_text: The text generated\
-          \ by the LLM\n    \"\"\"\n    # Find where the prompt_template text should\
-          \ go\n    search_str = \"prompt_template:\"\n    idx = dsl_template.find(search_str)\n\
-          \n    if idx != -1:\n        # Find the 'text:' field under prompt_template\n\
-          \        start_idx = dsl_template.find(\"text:\", idx)\n        end_idx\
-          \ = dsl_template.find(\"\\n        selected:\", start_idx)\n\n        if\
-          \ start_idx != -1 and end_idx != -1:\n            # Prepare the new text\
-          \ block with proper indentation\n            indent = \"              \"\
-          \n            new_text_block = f'text: |\\n{indent}{llm_text.replace(chr(10),\
-          \ chr(10)+indent)}'\n            # Replace the old text block with the new\
-          \ LLM text\n            dsl_template = dsl_template[:start_idx] + new_text_block\
-          \ + dsl_template[end_idx:]\n\n    return {\n        \"dsl\": dsl_template\n\
-          \    }\n"
+        code: "import json\nimport re\n\ndef main(dsl_template: str, llm_response:\
+          \ str) -> dict:\n    \"\"\"\n    dsl_template: The DSL template as a string\n\
+          \    llm_response: The LLM response containing 'text' field with JSON inside\
+          \ code block\n    \"\"\"\n    # Step 1: Parse the LLM response as JSON\n\
+          \    try:\n        llm_data = json.loads(llm_response)\n        llm_text\
+          \ = llm_data.get(\"text\", \"\")\n    except Exception:\n        llm_text\
+          \ = llm_response\n\n    # Step 2: Extract JSON inside ```json ... ``` if\
+          \ present\n    match = re.search(r\"```json\\s*(\\{.*\\})\\s*```\", llm_text,\
+          \ re.DOTALL)\n    if match:\n        json_content = match.group(1)\n   \
+          \     try:\n            llm_content = json.loads(json_content)\n       \
+          \     llm_title = llm_content.get(\"title\", \"\")\n            llm_prompt\
+          \ = llm_content.get(\"prompt_template\", \"\")\n        except Exception:\n\
+          \            llm_title = \"\"\n            llm_prompt = llm_text\n    else:\n\
+          \        llm_title = \"\"\n        llm_prompt = llm_text\n\n    # --- Replace\
+          \ app.name ---\n    if llm_title:\n        search_name = \"name:\"\n   \
+          \     idx_name = dsl_template.find(search_name)\n        if idx_name !=\
+          \ -1:\n            end_idx = dsl_template.find(\"\\n\", idx_name)\n    \
+          \        if end_idx != -1:\n                new_name_line = f\"name: {llm_title}\"\
+          \n                dsl_template = dsl_template[:idx_name] + new_name_line\
+          \ + dsl_template[end_idx:]\n\n    # --- Replace prompt_template.text ---\n\
+          \    search_str = \"prompt_template:\"\n    idx = dsl_template.find(search_str)\n\
+          \    if idx != -1:\n        start_idx = dsl_template.find(\"text:\", idx)\n\
+          \        end_idx = dsl_template.find(\"\\n        selected:\", start_idx)\n\
+          \        if start_idx != -1 and end_idx != -1:\n            indent = \"\
+          \              \"\n            new_text_block = f'text: |\\n{indent}{llm_prompt.replace(chr(10),\
+          \ chr(10)+indent)}'\n            dsl_template = dsl_template[:start_idx]\
+          \ + new_text_block + dsl_template[end_idx:]\n\n    return {\"dsl\": dsl_template}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -693,7 +715,7 @@ workflow:
             children: null
             type: string
         selected: false
-        title: Code 4
+        title: Append DSL
         type: code
         variables:
         - value_selector:
@@ -705,21 +727,21 @@ workflow:
           - '1757513100087'
           - text
           value_type: string
-          variable: llm_text
+          variable: llm_response
       height: 54
       id: '1757517270098'
       position:
-        x: 1090.8524796330123
-        y: 282
+        x: 331.1428571428571
+        y: 662.5714285714287
       positionAbsolute:
-        x: 1090.8524796330123
-        y: 282
+        x: 331.1428571428571
+        y: 662.5714285714287
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -28.592020769644023
-      y: 1.4467639157361418
-      zoom: 0.8824257984228254
+      x: 103
+      y: 53.7000000000001
+      zoom: 0.7
