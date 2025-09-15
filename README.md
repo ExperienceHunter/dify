@@ -13,6 +13,7 @@ This makes it easy to:
 ## 📌 Workflow Overview
 
 ![App Creator Overview](./dify/images/App%20Creator%20Overview.png)
+
 This diagram illustrates the **end-to-end flow** of creating and publishing a custom app using DSL templates.
 
 1. **Choose App Category**  
