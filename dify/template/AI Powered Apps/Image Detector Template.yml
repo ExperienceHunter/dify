@@ -1,0 +1,594 @@
+app:
+  description: ''
+  icon: 🔍
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: Image Detector Template
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.2.7@b8a04c0155eb3b9d43ed1199b4387e7f67ef75ad63fcec466eab31a726e2c3a0
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: bowenliang123/base64_codec:0.4.0@886cc78123c7d3f32f2f836ae2926bd8a6a0a93cb21f72409f8ca01c9d0104bd
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1758034245330-llm
+      source: '1758034245330'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1758613142439-source-1758614443961-target
+      source: '1758613142439'
+      sourceHandle: source
+      target: '1758614443961'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1758611621610-source-1758613142439-target
+      source: '1758611621610'
+      sourceHandle: source
+      target: '1758613142439'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: http-request
+      id: 1758726655919-source-1758611621610-target
+      source: '1758726655919'
+      sourceHandle: source
+      target: '1758611621610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: llm-source-1758807103887-target
+      source: llm
+      sourceHandle: source
+      target: '1758807103887'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1758807103887-source-1758726655919-target
+      source: '1758807103887'
+      sourceHandle: source
+      target: '1758726655919'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1758614443961-source-1758816639840-target
+      source: '1758614443961'
+      sourceHandle: source
+      target: '1758816639840'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1758816639840-source-answer-target
+      source: '1758816639840'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: Image
+          max_length: 5
+          options: []
+          required: true
+          type: file
+          variable: Image
+      height: 90
+      id: '1758034245330'
+      position:
+        x: 5.147439327967277
+        y: 282
+      positionAbsolute:
+        x: 5.147439327967277
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1758034245330'
+          - Image
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+            {{#1758034245330.Image#}}
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - edition_type: basic
+          id: e2c2c9a9-98e4-4125-8b72-5cf7c70a7968
+          role: system
+          text: "You are an AI assistant specialized in visual object detection. \
+            \ \nThis is the image: {{#context#}}  \n\nYour task is to carefully analyze\
+            \ the uploaded image and:  \n1. Detect all distinct objects, whether animate\
+            \ (e.g., people, animals) or inanimate (e.g., chairs, cars, buildings).\
+            \  \n2. Count how many objects are present in total.  \n3. Provide a breakdown\
+            \ of the detected objects, grouped by name, with their counts.  \n4. For\
+            \ each detected object, return its rectangle **relative coordinates**\
+            \ in the format [x_min, y_min, x_max, y_max],  \n   where each value is\
+            \ normalized between 0 and 1 relative to the image width and height. \
+            \ \n\nAnswer only in JSON format like this:\n{\n  \"total_objects\": <number>,\n\
+            \  \"objects\": [\n    {\n      \"name\": \"object_name\",\n      \"count\"\
+            : <count>,\n      \"coordinates\": [\n        [x_min, y_min, x_max, y_max],\n\
+            \        [x_min, y_min, x_max, y_max]\n      ]\n    },\n    {\n      \"\
+            name\": \"object_name_2\",\n      \"count\": <count>,\n      \"coordinates\"\
+            : [\n        [x_min, y_min, x_max, y_max]\n      ]\n    }\n  ]\n}\n"
+        selected: true
+        structured_output_enabled: true
+        title: Get Coordinates
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1758034245330'
+            - Image
+          enabled: true
+      height: 90
+      id: llm
+      position:
+        x: 403.29383533945827
+        y: 282
+      positionAbsolute:
+        x: 403.29383533945827
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '![image]({{#1758816639840.local_url#}})'
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 121
+      id: answer
+      position:
+        x: 1303.3788441184636
+        y: 282
+      positionAbsolute:
+        x: 1303.3788441184636
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-471
+            key: ''
+            type: text
+            value: "{\n  \"image_base64\": \"{{#1758726655919.text#}}\",\n  \"detection_json\"\
+              : {\n    \"total_objects\": 0, \n    \"objects\": {{#1758807103887.objects#}}\n\
+              \  }\n}\n"
+          type: json
+        desc: ''
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Annotate Image
+        type: http-request
+        url: http://192.0.0.2:5010/annotate
+        variables: []
+      height: 140
+      id: '1758611621610'
+      position:
+        x: 711.5062783394171
+        y: 370.1758749222598
+      positionAbsolute:
+        x: 711.5062783394171
+        y: 370.1758749222598
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(**kwargs) -> dict:\n    # Depending on the\
+          \ node, the input may come as '' or 'input'\n    response = kwargs.get('response')\
+          \ or kwargs.get('input') or kwargs.get('') or \"{}\"\n    \n    # Parse\
+          \ JSON\n    body_json = json.loads(response)\n    \n    # Extract annotated\
+          \ image and objects\n    annotated_image = body_json.get(\"annotated_image\"\
+          , \"\")\n    objects = body_json.get(\"objects\", [])\n    \n    return\
+          \ {\n        \"annotated_image\": annotated_image,\n        \"objects\"\
+          : objects\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          annotated_image:
+            children: null
+            type: string
+          objects:
+            children: null
+            type: array[object]
+        selected: false
+        title: Get Base64 Annotated Image
+        type: code
+        variables:
+        - value_selector:
+          - '1758611621610'
+          - body
+          value_type: string
+          variable: response
+      height: 54
+      id: '1758613142439'
+      position:
+        x: 711.5062783394171
+        y: 532.8113775566502
+      positionAbsolute:
+        x: 711.5062783394171
+        y: 532.8113775566502
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Base64 encoded image string, default convert to PNG, support PNG
+              ("data:image/png;base64" prefix) and JPG ("data:image/jpeg;base64" prefix)
+            ja_JP: Base64 encoded image string, default convert to PNG, support PNG
+              ("data:image/png;base64" prefix) and JPG ("data:image/jpeg;base64" prefix)
+            pt_BR: Base64 encoded image string, default convert to PNG, support PNG
+              ("data:image/png;base64" prefix) and JPG ("data:image/jpeg;base64" prefix)
+            zh_Hans: Base64 编码的图片字符串，默认转为PNG格式，支持PNG格式（data:image/png;base64开头）及JPG格式（data:image/jpeg;base64开头）
+          label:
+            en_US: Base64 encoded Text
+            ja_JP: Base64 encoded Text
+            pt_BR: Base64 encoded Text
+            zh_Hans: 已 Base64 编码的图片字符串
+          llm_description: A tool for decoding Base64-encoded text to image file
+          max: null
+          min: null
+          name: encoded_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          label:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          llm_description: ''
+          max: null
+          min: null
+          name: output_filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          encoded_text: ''
+          output_filename: ''
+        provider_id: bowenliang123/base64_codec/base64_codec
+        provider_name: bowenliang123/base64_codec/base64_codec
+        provider_type: builtin
+        selected: false
+        title: Base64 Text to Image
+        tool_configurations: {}
+        tool_description: Decode Base64-encoded text to an image file
+        tool_label: Base64 Text to Image
+        tool_name: base64_image_decoder
+        tool_parameters:
+          encoded_text:
+            type: mixed
+            value: '{{#1758613142439.annotated_image#}}'
+          output_filename:
+            type: mixed
+            value: test
+        type: tool
+      height: 54
+      id: '1758614443961'
+      position:
+        x: 999.8233952134763
+        y: 282
+      positionAbsolute:
+        x: 999.8233952134763
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Input Image File
+            ja_JP: Input Image File
+            pt_BR: Input Image File
+            zh_Hans: 输入的图片文件
+          label:
+            en_US: Input Image File
+            ja_JP: Input Image File
+            pt_BR: Input Image File
+            zh_Hans: 输入的图片文件
+          llm_description: A tool for encoding image file to Base64-encoded text
+          max: null
+          min: null
+          name: input_image
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        params:
+          input_image: ''
+        provider_id: bowenliang123/base64_codec/base64_codec
+        provider_name: bowenliang123/base64_codec/base64_codec
+        provider_type: builtin
+        selected: false
+        title: Image to Base64 Text
+        tool_configurations: {}
+        tool_description: Encode the image file to Base64-encoded text
+        tool_label: Image to Base64 Text
+        tool_name: base64_image_encoder
+        tool_parameters:
+          input_image:
+            type: variable
+            value:
+            - '1758034245330'
+            - Image
+        type: tool
+      height: 54
+      id: '1758726655919'
+      position:
+        x: 711.5062783394171
+        y: 282
+      positionAbsolute:
+        x: 711.5062783394171
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(**kwargs) -> dict:\n    # Get the input text\n\
+          \    response = kwargs.get('response') or kwargs.get('input') or \"{}\"\n\
+          \    \n    # Strip Markdown-style ```json if present\n    if isinstance(response,\
+          \ str) and response.startswith(\"```\"):\n        response = \"\\n\".join(response.split(\"\
+          \\n\")[1:-1])\n    \n    # Parse JSON\n    try:\n        data = json.loads(response)\n\
+          \    except json.JSONDecodeError:\n        data = {}\n\n    # Extract objects\
+          \ and convert to string\n    objects_str = json.dumps(data.get(\"objects\"\
+          , []))\n\n    # Return full text and objects as string\n    return {\n \
+          \       \"text\": json.dumps(data),\n        \"objects\": objects_str\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          objects:
+            children: null
+            type: string
+          text:
+            children: null
+            type: string
+        selected: false
+        title: Get Coordinates
+        type: code
+        variables:
+        - value_selector:
+          - llm
+          - text
+          value_type: string
+          variable: response
+      height: 54
+      id: '1758807103887'
+      position:
+        x: 403.29383533945827
+        y: 415.2435443269704
+      positionAbsolute:
+        x: 403.29383533945827
+        y: 415.2435443269704
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\nfrom urllib.parse import urlparse, urlunparse\n\ndef main(**kwargs)\
+          \ -> dict:\n    # Get input from the node\n    response = kwargs.get('response')\
+          \ or kwargs.get('input') or kwargs.get('') or \"[]\"\n    \n    # Parse\
+          \ JSON safely\n    try:\n        body_json = json.loads(response) if isinstance(response,\
+          \ str) else response\n    except Exception:\n        body_json = []\n\n\
+          \    # Default URL\n    local_url = \"\"\n    \n    if body_json and isinstance(body_json,\
+          \ list):\n        original_url = body_json[0].get(\"url\", \"\")\n     \
+          \   if original_url:\n            # Parse URL and replace domain with localhost\n\
+          \            parsed = urlparse(original_url)\n            parsed = parsed._replace(netloc=\"\
+          localhost\")\n            local_url = urlunparse(parsed)\n    \n    return\
+          \ {\n        \"local_url\": local_url\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          local_url:
+            children: null
+            type: string
+        selected: false
+        title: Get Image Url
+        type: code
+        variables:
+        - value_selector:
+          - '1758614443961'
+          - files
+          value_type: array[file]
+          variable: response
+      height: 54
+      id: '1758816639840'
+      position:
+        x: 999.8233952134763
+        y: 370.1758749222598
+      positionAbsolute:
+        x: 999.8233952134763
+        y: 370.1758749222598
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 190.13384660188171
+      y: -50.41991816403345
+      zoom: 1.0206873487714005
