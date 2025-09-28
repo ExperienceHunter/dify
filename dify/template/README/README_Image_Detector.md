@@ -11,6 +11,7 @@ Also, ensure the file `image_annotation_flask.py` is available and ready to exec
 
 ```bash
 python image_annotation_flask.py
+```
 ---
 
 ## 📌 Steps to Create Your Image Detector
