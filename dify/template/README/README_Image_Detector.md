@@ -5,6 +5,14 @@ By describing the type of image detector you want, App Creator automatically bui
 
 ---
 
+## ⚙️ Requirements
+
+Before using this template, make sure the **image annotation service** is running:
+
+```bash
+python image_annotation_flask.py
+---
+
 ## 📌 Steps to Create Your Image Detector
 
 ### 1. Start App Creator
