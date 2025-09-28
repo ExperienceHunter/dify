@@ -47,4 +47,4 @@ By simply describing the type of chatbot you want, App Creator automatically bui
 
 ## 📂 Next Steps
 - Modify the query to experiment with different chatbot behaviors.  
-- Explore other templates like [🖼️ Image Detector](../image-detector/README.md).  
+- Explore other templates like [🖼️ Image Detector](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Image_Detector.md).  
