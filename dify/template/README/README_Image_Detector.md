@@ -11,7 +11,6 @@ Before using this template, make sure the **image annotation service** is runnin
 
 ```bash
 python image_annotation_flask.py
----
 
 ## 📌 Steps to Create Your Image Detector
 
