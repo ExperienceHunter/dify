@@ -31,10 +31,13 @@ By describing the type of image detector you want, App Creator automatically bui
 
 ### 3. Use Your Image Detector
 - Upload or provide an image to the app.  
-- View the results directly in the app interface.  
+- The app will return both the **execution result** and an **annotated image** with detected objects highlighted.  
 
-📷 *Example Detector*  
-![Step 3](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/ImageDetector_Image_3.png)
+📷 *Execution Result*  
+![Step 3a](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/ImageDetector_Image_3.png)
+
+📷 *Annotated Output (Detected Image)*  
+![Step 3b](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/ImageDetector_Image_4.png)
 
 ---
 
