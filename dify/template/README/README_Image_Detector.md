@@ -4,6 +4,15 @@ This template demonstrates how to create a **custom image detection app** using 
 By describing the type of image detector you want, App Creator automatically builds and publishes it for you.
 
 ---
+## ⚙️ Requirements
+
+Before using this template, make sure the **image annotation service** is running.  
+Also, ensure the file `image_annotation_flask.py` is available and ready to execute.
+
+```bash
+python image_annotation_flask.py
+---
+---
 
 ## 📌 Steps to Create Your Image Detector
 
