@@ -15,7 +15,7 @@ By simply describing the type of chatbot you want, App Creator automatically bui
 - In the **Query** field, type what kind of chatbot you want (e.g., *"a friendly travel assistant"*, *"a strict grammar checker"*, *"a movie recommender"*, etc.).  
 
 📷 *Example UI*  
-![Step 1](./images/chatbot_step1.png)
+![Step 1](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/Chatbot_Image_1.png)
 
 ---
 
@@ -25,7 +25,7 @@ By simply describing the type of chatbot you want, App Creator automatically bui
 - Click the link to open the app.  
 
 📷 *Example Output*  
-![Step 2](./images/chatbot_step2.png)
+![Step 1](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/Chatbot_Image_2.png)
 
 ---
 
@@ -34,7 +34,7 @@ By simply describing the type of chatbot you want, App Creator automatically bui
 - You can now use it like a normal chatbot.  
 
 📷 *Example Chatbot*  
-![Step 3](./images/chatbot_step3.png)
+![Step 1](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/Chatbot_Image_3.png)
 
 ---
 
