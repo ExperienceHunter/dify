@@ -45,3 +45,13 @@ This diagram illustrates the **end-to-end flow** of creating and publishing a cu
 ---
 
 📷 *Diagram: High-level workflow of building and publishing an app with DSL templates.*
+
+## 📂 Available Templates
+
+I have also created ready-to-use templates that demonstrate how to build apps with App Creator:
+
+- 🤖 **Chatbot Template** – A customizable chatbot app with system prompts and workflow logic.  
+  [View README](./templates/chatbot/README.md)
+
+- 🖼️ **Image Detector Template** – An app template for visual object detection with image inputs and outputs.  
+  [View README](./templates/image-detector/README.md)
