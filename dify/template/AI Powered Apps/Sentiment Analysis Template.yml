@@ -1,0 +1,383 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Sentiment Analysis Template
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.2.7@b8a04c0155eb3b9d43ed1199b4387e7f67ef75ad63fcec466eab31a726e2c3a0
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1758966774014-source-1759655238814-target
+      source: '1758966774014'
+      sourceHandle: source
+      target: '1759655238814'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1759655238814-source-1711708653229-target
+      source: '1759655238814'
+      sourceHandle: source
+      target: '1711708653229'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1711708591503-source-1758966774014-target
+      source: '1711708591503'
+      sourceHandle: source
+      target: '1758966774014'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: true
+        title: Start
+        type: start
+        variables:
+        - label: entity
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: entity
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: topic
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: topic
+        - hide: true
+          label: sources
+          max_length: 48
+          options:
+          - reddit
+          - x
+          - google
+          - all
+          required: false
+          type: select
+          variable: sources
+        - label: time_frame
+          max_length: 48
+          options:
+          - hour
+          - day
+          - week
+          - month
+          - year
+          - all
+          required: true
+          type: select
+          variable: time_frame
+        - hide: true
+          label: output_format
+          max_length: 48
+          options:
+          - Summary
+          - Scores
+          - Detailed
+          required: false
+          type: select
+          variable: output_format
+      height: 194
+      id: '1711708591503'
+      position:
+        x: 179.33340067524114
+        y: 3033.5
+      positionAbsolute:
+        x: 179.33340067524114
+        y: 3033.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1759655238814'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: End
+        type: end
+      height: 90
+      id: '1711708653229'
+      position:
+        x: 1189.0278425758297
+        y: 3033.5
+      positionAbsolute:
+        x: 1189.0278425758297
+        y: 3033.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for linking to webpages
+            ja_JP: used for linking to webpages
+            pt_BR: used for linking to webpages
+            zh_Hans: 用于链接到网页
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网页链接
+          llm_description: url for scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/100.0.1000.0 Safari/537.36
+          form: form
+          human_description:
+            en_US: used for identifying the browser.
+            ja_JP: used for identifying the browser.
+            pt_BR: used for identifying the browser.
+            zh_Hans: 用于识别浏览器。
+          label:
+            en_US: User Agent
+            ja_JP: User Agent
+            pt_BR: User Agent
+            zh_Hans: User Agent
+          llm_description: null
+          max: null
+          min: null
+          name: user_agent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: If true, the crawler will only return the page summary content.
+            ja_JP: If true, the crawler will only return the page summary content.
+            pt_BR: If true, the crawler will only return the page summary content.
+            zh_Hans: 如果启用，爬虫将仅返回页面摘要内容。
+          label:
+            en_US: Whether to generate summary
+            ja_JP: Whether to generate summary
+            pt_BR: Whether to generate summary
+            zh_Hans: 是否生成摘要
+          llm_description: null
+          max: null
+          min: null
+          name: generate_summary
+          options:
+          - icon: null
+            label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'true'
+          - icon: null
+            label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          generate_summary: ''
+          url: ''
+          user_agent: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: Web Scraper
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_description: A tool for scraping webpages.
+        tool_label: Web Scraper
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: https://www.reddit.com/search.json?q={{#1711708591503.entity#}}%20{{#1711708591503.topic#}}&t={{#1711708591503.time_frame#}}&limit=5
+        type: tool
+      height: 116
+      id: '1758966774014'
+      position:
+        x: 548.2818479843125
+        y: 3033.5
+      positionAbsolute:
+        x: 548.2818479843125
+        y: 3033.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1758966774014'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 12eaf201-dbc5-4384-b049-344d6d4b628e
+          role: system
+          text: "You are an advanced sentiment analysis engine.\n\nUser input:\n{{#context#}}\n\
+            \nYour task is to analyze text data collected from any online source (e.g.,\
+            \ Reddit, X/Twitter, Google reviews, YouTube comments, blogs, or news\
+            \ articles).\n\nFirst, ensure that the extracted content is **relevant**\
+            \ to the following:\n- Entity: {{#1711708591503.entity#}}\n- Topic: {{#1711708591503.topic#}}\n\
+            \nIgnore or filter out any text that is unrelated to both the entity and\
+            \ topic above.\n\nThen perform sentiment analysis on the remaining relevant\
+            \ content.\n\nSteps:\n1. Safely parse the input (it may be structured\
+            \ JSON or escaped JSON text).\n2. Extract all human-written content —\
+            \ such as posts, titles, comments, or reviews.\n3. Keep only text segments\
+            \ that clearly mention or relate to the specified entity or topic.\n4.\
+            \ Determine the **overall sentiment** expressed across the remaining text.\
+            \ Choose one of:\n   - Positive\n   - Negative\n   - Neutral\n5. Assign\
+            \ a **confidence score** between 0.0 and 1.0 indicating how certain you\
+            \ are.\n6. Provide a concise explanation summarizing your reasoning.\n\
+            7. Include 1–3 short representative snippets that best illustrate the\
+            \ detected sentiment.\n\nOutput:\nReturn your analysis strictly in valid\
+            \ JSON format:\n{\n  \"sentiment\": \"Positive | Negative | Neutral\"\
+            ,\n  \"confidence\": 0.0,\n  \"explanation\": \"...\",\n  \"sample_texts\"\
+            : [\"...\", \"...\"]\n}\n\nGuidelines:\n- Focus on tone, emotion, and\
+            \ attitude — not factual correctness.\n- If multiple sentiments are present,\
+            \ identify the **dominant** one.\n- If sentiment is mixed or unclear,\
+            \ select \"Neutral\" with a moderate confidence score.\n- If no relevant\
+            \ text is found, return a Neutral sentiment with confidence 0.0 and explanation\
+            \ \"No relevant content found.\"\n- Never include extra commentary, markdown,\
+            \ or text outside the JSON.\n"
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1759655238814'
+      position:
+        x: 862.2188774945523
+        y: 3033.5
+      positionAbsolute:
+        x: 862.2188774945523
+        y: 3033.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 37.102093969717544
+      y: -1390.3780963950267
+      zoom: 0.5409011376429258
