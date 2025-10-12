@@ -3,7 +3,7 @@ app:
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
-  name: App Creator Prototype 2
+  name: App Creator Prototype
   use_icon_as_answer_icon: false
 dependencies:
 - current_identifier: null
@@ -66,6 +66,7 @@ workflow:
         sourceType: http-request
         targetType: code
       id: 1757075547683-source-1757077407622-target
+      selected: false
       source: '1757075547683'
       sourceHandle: source
       target: '1757077407622'
@@ -150,18 +151,6 @@ workflow:
       type: custom
       zIndex: 0
     - data:
-        isInIteration: false
-        isInLoop: false
-        sourceType: llm
-        targetType: code
-      id: 1757513100087-source-1757517270098-target
-      source: '1757513100087'
-      sourceHandle: source
-      target: '1757517270098'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
         isInLoop: false
         sourceType: start
         targetType: tool
@@ -198,20 +187,10 @@ workflow:
       zIndex: 0
     - data:
         isInLoop: false
-        sourceType: http-request
-        targetType: parameter-extractor
-      id: 1756824342559-source-1758893789428-target
-      source: '1756824342559'
-      sourceHandle: source
-      target: '1758893789428'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
         sourceType: parameter-extractor
         targetType: llm
       id: 1758893789428-source-1757513100087-target
+      selected: false
       source: '1758893789428'
       sourceHandle: source
       target: '1757513100087'
@@ -234,9 +213,35 @@ workflow:
         isInIteration: false
         isInLoop: false
         sourceType: code
+        targetType: http-request
+      id: 1758907407686-source-1757075547683-target
+      selected: false
+      source: '1758907407686'
+      sourceHandle: source
+      target: '1757075547683'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1757513100087-source-1760259516447-target
+      selected: false
+      source: '1757513100087'
+      sourceHandle: source
+      target: '1760259516447'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
         targetType: code
-      id: 1757517270098-source-1758907407686-target
-      source: '1757517270098'
+      id: 1760259516447-source-1758907407686-target
+      selected: false
+      source: '1760259516447'
       sourceHandle: source
       target: '1758907407686'
       targetHandle: target
@@ -245,12 +250,25 @@ workflow:
     - data:
         isInIteration: false
         isInLoop: false
-        sourceType: code
-        targetType: http-request
-      id: 1758907407686-source-1757075547683-target
-      source: '1758907407686'
+        sourceType: http-request
+        targetType: code
+      id: 1756824342559-source-1760264519999-target
+      source: '1756824342559'
       sourceHandle: source
-      target: '1757075547683'
+      target: '1760264519999'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: parameter-extractor
+      id: 1760264519999-source-1758893789428-target
+      selected: false
+      source: '1760264519999'
+      sourceHandle: source
+      target: '1758893789428'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -272,7 +290,7 @@ workflow:
           options:
           - AI Powered Apps
           - Business Utility
-          required: true
+          required: false
           type: text-input
           variable: Query
         - label: AI_Powered_Apps
@@ -280,6 +298,7 @@ workflow:
           options:
           - ChatBot
           - Image Detector
+          - Sentiment Analysis
           required: true
           type: select
           variable: AI_Powered_Apps
@@ -331,11 +350,11 @@ workflow:
       height: 126
       id: '1756824342559'
       position:
-        x: 931.1428571428571
-        y: 294
+        x: 603.0339104181248
+        y: 492.81732232626115
       positionAbsolute:
-        x: 931.1428571428571
-        y: 294
+        x: 603.0339104181248
+        y: 492.81732232626115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -355,11 +374,11 @@ workflow:
       height: 90
       id: '1756825484203'
       position:
-        x: 3081.8009429272656
-        y: 296.85409834078763
+        x: 2433.37296754869
+        y: 306.666748644739
       positionAbsolute:
-        x: 3081.8009429272656
-        y: 296.85409834078763
+        x: 2433.37296754869
+        y: 306.666748644739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -400,11 +419,11 @@ workflow:
       height: 139
       id: '1756826359838'
       position:
-        x: 2153.8009429272656
-        y: 294
+        x: 1505.3729675486904
+        y: 303.8126503039514
       positionAbsolute:
-        x: 2153.8009429272656
-        y: 294
+        x: 1505.3729675486904
+        y: 303.8126503039514
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -443,11 +462,11 @@ workflow:
       height: 139
       id: '1757075547683'
       position:
-        x: 1738.1898194437456
-        y: 294
+        x: 1207.5136477125868
+        y: 301.35948772796354
       positionAbsolute:
-        x: 1738.1898194437456
-        y: 294
+        x: 1207.5136477125868
+        y: 301.35948772796354
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -477,11 +496,11 @@ workflow:
       height: 54
       id: '1757077407622'
       position:
-        x: 1738.1898194437456
-        y: 444.230394502717
+        x: 1207.5136477125868
+        y: 451.58988223068053
       positionAbsolute:
-        x: 1738.1898194437456
-        y: 444.230394502717
+        x: 1207.5136477125868
+        y: 451.58988223068053
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -514,11 +533,11 @@ workflow:
       height: 54
       id: '1757079071922'
       position:
-        x: 2153.8009429272656
-        y: 452.5683840550733
+        x: 1505.3729675486904
+        y: 462.3810343590247
       positionAbsolute:
-        x: 2153.8009429272656
-        y: 452.5683840550733
+        x: 1505.3729675486904
+        y: 462.3810343590247
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -558,11 +577,11 @@ workflow:
       height: 174
       id: '1757079584477'
       position:
-        x: 2455.8009429272656
-        y: 296.85409834078763
+        x: 1807.3729675486904
+        y: 306.666748644739
       positionAbsolute:
-        x: 2455.8009429272656
-        y: 296.85409834078763
+        x: 1807.3729675486904
+        y: 306.666748644739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -594,11 +613,11 @@ workflow:
       height: 90
       id: '1757080929697'
       position:
-        x: 2766.372371498694
-        y: 296.85409834078763
+        x: 2117.9443961201187
+        y: 306.666748644739
       positionAbsolute:
-        x: 2766.372371498694
-        y: 296.85409834078763
+        x: 2117.9443961201187
+        y: 306.666748644739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -634,30 +653,44 @@ workflow:
       height: 158
       id: '1757082045123'
       position:
-        x: 2455.8009429272656
-        y: 511.13981262650196
+        x: 1807.3729675486904
+        y: 520.9524629304533
       positionAbsolute:
-        x: 2455.8009429272656
-        y: 511.13981262650196
+        x: 1807.3729675486904
+        y: 520.9524629304533
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(response: str) -> dict:\n    # Parse the JSON\
-          \ string\n    body_json = json.loads(response)\n    \n    # Extract relevant\
-          \ IDs\n    dsl_id = body_json.get(\"id\", \"\")\n    app_id = body_json.get(\"\
-          app_id\", \"\")\n    \n    # Extract the public URL code\n    site = body_json.get(\"\
-          site\", {})\n    public_code = site.get(\"code\", \"\")\n    \n    # Construct\
-          \ the full public URL using localhost base\n    public_url = f\"http://localhost/chat/{public_code}\"\
-          \ if public_code else \"\"\n    \n    return {\n        \"dsl_id\": dsl_id,\n\
-          \        \"app_id\": app_id,\n        \"public_code\": public_code,\n  \
-          \      \"public_url\": public_url\n    }\n"
+        code: "import json\n\ndef main(response: str) -> dict:\n    \"\"\"\n    Parses\
+          \ a Dify app JSON response and constructs a public URL.\n    Always uses\
+          \ http://localhost/ as the base URL.\n    Supports all app modes (chat,\
+          \ workflow, api, etc.).\n    \"\"\"\n\n    # --- Step 1: Parse JSON safely\
+          \ ---\n    try:\n        body_json = json.loads(response)\n    except Exception\
+          \ as e:\n        return {\"error\": f\"Invalid JSON input: {e}\"}\n\n  \
+          \  # --- Step 2: Extract key information ---\n    dsl_id = body_json.get(\"\
+          id\", \"\")\n    app_id = body_json.get(\"app_id\", \"\")\n    app_mode\
+          \ = body_json.get(\"mode\", \"\").lower()\n    site = body_json.get(\"site\"\
+          , {}) or {}\n    public_code = site.get(\"code\", \"\")\n\n    # --- Step\
+          \ 3: Determine path based on mode ---\n    mode_path_map = {\n        \"\
+          workflow\": \"workflow\",\n        \"chat\": \"chat\",\n        \"api\"\
+          : \"api\",\n        \"agent\": \"agent\"\n    }\n    path_segment = mode_path_map.get(app_mode,\
+          \ \"chat\")\n\n    # --- Step 4: Always use localhost base URL ---\n   \
+          \ base_url = \"http://localhost\"\n\n    # --- Step 5: Construct full public\
+          \ URL ---\n    public_url = f\"{base_url.rstrip('/')}/{path_segment}/{public_code}\"\
+          \ if public_code else \"\"\n\n    # --- Step 6: Return structured output\
+          \ ---\n    return {\n        \"dsl_id\": dsl_id,\n        \"app_id\": app_id,\n\
+          \        \"app_mode\": app_mode or \"chat\",\n        \"public_code\": public_code,\n\
+          \        \"public_url\": public_url\n    }\n"
         code_language: python3
         desc: ''
         outputs:
           app_id:
+            children: null
+            type: string
+          app_mode:
             children: null
             type: string
           dsl_id:
@@ -681,11 +714,11 @@ workflow:
       height: 54
       id: '1757084569421'
       position:
-        x: 2455.8009429272656
-        y: 698.282669769359
+        x: 1807.3729675486904
+        y: 708.0953200733104
       positionAbsolute:
-        x: 2455.8009429272656
-        y: 698.282669769359
+        x: 1807.3729675486904
+        y: 708.0953200733104
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -711,18 +744,21 @@ workflow:
             \ Dify LLM node.\n\nYou will receive:\n- The extracted \"prompt_template\"\
             \ text as reference: {{#context#}}\n- The user's request describing what\
             \ to change: {{#1756820253386.Query#}}\n\nYour task:\n- Create a new JSON\
-            \ object with exactly two fields: \"name\" and \"prompt_template\". \n\
-            - \"name\": A short, clear, relevant title based on the user's request.\n\
-            - \"prompt_template\": A new system prompt text, adapted from the reference\
-            \ template and updated based on the user's request. Ensure that the new\
-            \ prompt retains most of the original content and only incorporates changes\
-            \ relevant to the user's query.\n\nOutput requirements:\n- JSON ONLY.\
-            \ No explanations, no extra text, no code fences.\n- Use double quotes\
-            \ for all keys and string values.\n- Include both fields exactly; no extra\
-            \ fields allowed.\n- Ensure valid JSON: properly escaped strings, no trailing\
-            \ commas.\n\nExample correct output:\n{\n  \"name\": \"Travel Helper Bot\"\
-            ,\n  \"prompt_template\": \"You are a helpful assistant that helps users\
-            \ plan trips.\"\n}\n"
+            \ object with exactly two fields: \"name\" and \"prompt_template\".\n\
+            \  - \"name\": A concise, clear, and relevant title based on the user's\
+            \ request.\n  - \"prompt_template\": A revised system prompt, adapted\
+            \ from the reference template and updated according to the user's request.\
+            \ Retain most of the original content, modifying only what is necessary\
+            \ to reflect the changes.\n- Do not modify, remove, rename, or relocate\
+            \ any variable placeholders (like the context variable or the query variable).\
+            \ These placeholders must remain exactly as they appear in the edited\
+            \ prompt_template.\n\nOutput requirements:\n- JSON ONLY. Do not include\
+            \ explanations, extra text, or code fences.\n- Use double quotes for all\
+            \ keys and string values.\n- Include exactly these two fields; no additional\
+            \ fields are allowed.\n- Ensure valid JSON: properly escaped strings,\
+            \ no trailing commas.\n\nExample correct output:\n{\n  \"name\": \"Travel\
+            \ Helper Bot\",\n  \"prompt_template\": \"You are a helpful assistant\
+            \ that helps users plan trips.\"\n}\n"
         selected: false
         structured_output:
           schema:
@@ -747,63 +783,11 @@ workflow:
       height: 90
       id: '1757513100087'
       position:
-        x: 931.1428571428571
-        y: 566.1656364310331
+        x: 912.2317222644374
+        y: 423.7256240471009
       positionAbsolute:
-        x: 931.1428571428571
-        y: 566.1656364310331
-      selected: true
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import json\nimport yaml\n\ndef main(dsl_template: str, llm_response:\
-          \ str) -> dict:\n    # --- Parse DSL template ---\n    try:\n        dsl\
-          \ = yaml.safe_load(dsl_template)\n    except Exception as e:\n        return\
-          \ {\"error\": f\"Failed to parse DSL template: {e}\"}\n\n    # --- Parse\
-          \ LLM response ---\n    try:\n        llm_data = json.loads(llm_response)\n\
-          \        llm_name = llm_data.get(\"name\", \"\")\n        llm_prompt = llm_data.get(\"\
-          prompt_template\", \"\")\n    except Exception:\n        llm_name = \"\"\
-          \n        llm_prompt = \"\"\n\n    # --- Replace app.name ---\n    if llm_name\
-          \ and \"app\" in dsl:\n        dsl[\"app\"][\"name\"] = llm_name\n\n   \
-          \ # --- Replace prompt_template.text in LLM nodes ---\n    if \"workflow\"\
-          \ in dsl and \"graph\" in dsl[\"workflow\"] and \"nodes\" in dsl[\"workflow\"\
-          ][\"graph\"]:\n        for node in dsl[\"workflow\"][\"graph\"][\"nodes\"\
-          ]:\n            data = node.get(\"data\", {})\n            prompt_list =\
-          \ data.get(\"prompt_template\")\n            if prompt_list and isinstance(prompt_list,\
-          \ list):\n                for prompt in prompt_list:\n                 \
-          \   if \"text\" in prompt:\n                        prompt[\"text\"] = llm_prompt\n\
-          \n    # --- Dump back to YAML ---\n    new_dsl_template = yaml.safe_dump(dsl,\
-          \ sort_keys=False)\n    return {\"dsl\": new_dsl_template}\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          dsl:
-            children: null
-            type: string
-        selected: false
-        title: Append DSL
-        type: code
-        variables:
-        - value_selector:
-          - '1756824342559'
-          - body
-          value_type: string
-          variable: dsl_template
-        - value_selector:
-          - '1757513100087'
-          - text
-          value_type: string
-          variable: llm_response
-      height: 54
-      id: '1757517270098'
-      position:
-        x: 931.1428571428571
-        y: 698.282669769359
-      positionAbsolute:
-        x: 931.1428571428571
-        y: 698.282669769359
+        x: 912.2317222644374
+        y: 423.7256240471009
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -919,7 +903,7 @@ workflow:
         provider_name: Select App 2
         provider_type: workflow
         selected: false
-        title: Select App 2
+        title: Select App
         tool_configurations: {}
         tool_description: ''
         tool_label: Select App 2
@@ -965,7 +949,7 @@ workflow:
             children: null
             type: string
         selected: false
-        title: Code 5
+        title: Parsing
         type: code
         variables:
         - value_selector:
@@ -991,22 +975,28 @@ workflow:
         instruction: 'You are a parameter extraction assistant.
 
 
-          The input will contain a full DSL specification inside the field "body".
+          The input will contain a full DSL specification inside the field "body":
 
-          This is the input: {{#1756824342559.body#}}
+          {{#1756824342559.body#}}
 
 
           From this input, extract **only** the `text` field of the first item in
           the `prompt_template` array.
 
 
-          Return the result as a **plain string** only:
+          Rules:
 
-          - Do not output JSON, arrays, objects, or any extra text.
+          - Return the result as a **plain string** only.
 
           - Preserve all line breaks and formatting exactly as in the DSL.
 
+          - Do not change, remove, rename, or relocate any content inside the `text`
+          field.
+
           - If `prompt_template` does not exist or is empty, return an empty string.
+
+
+          Do not output JSON, arrays, objects, or any extra text.
 
           '
         model:
@@ -1022,8 +1012,8 @@ workflow:
           required: true
           type: string
         query:
-        - '1756824342559'
-        - body
+        - '1760264519999'
+        - safe_text
         reasoning_mode: prompt
         selected: false
         title: Prompt Template Extract
@@ -1034,11 +1024,11 @@ workflow:
       height: 90
       id: '1758893789428'
       position:
-        x: 931.1428571428571
-        y: 444.230394502717
+        x: 912.2317222644374
+        y: 301.94696509542206
       positionAbsolute:
-        x: 931.1428571428571
-        y: 444.230394502717
+        x: 912.2317222644374
+        y: 301.94696509542206
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1060,28 +1050,117 @@ workflow:
             children: null
             type: string
         selected: false
-        title: Code 6
+        title: Reformat DSL
         type: code
         variables:
         - value_selector:
-          - '1757517270098'
-          - dsl
+          - '1760259516447'
+          - text
           value_type: string
           variable: raw_dsl
       height: 54
       id: '1758907407686'
       position:
-        x: 1336.452506651304
-        y: 294
+        x: 912.2317222644374
+        y: 676.6933618541038
       positionAbsolute:
-        x: 1336.452506651304
-        y: 294
+        x: 912.2317222644374
+        y: 676.6933618541038
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1757513100087'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 7759c513-2ac9-4962-a588-a04e86f58a8d
+          role: system
+          text: "You are an assistant that updates a Dify DSL template using the user's\
+            \ revised system prompt.\n\nYou will receive:\n- The original DSL template\
+            \ text: {{#1756824342559.body#}}\n- The LLM's JSON output from the previous\
+            \ node: {{#context#}}\n\nYour task:\n1. Parse the JSON output from the\
+            \ previous node. It contains exactly two fields:\n   - \"name\": the new\
+            \ app name\n   - \"prompt_template\": the revised system prompt\n2. Update\
+            \ the original DSL template accordingly:\n   - Replace the value of `app.name`\
+            \ with the value of \"name\".\n   - Replace every occurrence of the LLM\
+            \ node’s `prompt_template[].text` field with the new \"prompt_template\"\
+            .\n   - Preserve all other structure and indentation in the YAML.\n3.\
+            \ Output the full, updated DSL as YAML text only.\n\nOutput requirements:\n\
+            - Output **only the full updated YAML DSL**.\n- Do not include explanations,\
+            \ JSON, or code fences.\n- Keep indentation and structure identical to\
+            \ the original wherever possible.\n"
+        selected: false
+        title: Append DSL
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1760259516447'
+      position:
+        x: 912.2317222644374
+        y: 555.999240362064
+      positionAbsolute:
+        x: 912.2317222644374
+        y: 555.999240362064
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\n\ndef main(dsl_text: str) -> dict:\n    \"\"\"\n    Prepares\
+          \ DSL text for the extractor node by escaping all Dify-style placeholders.\n\
+          \    \n    Args:\n        dsl_text (str): Full DSL text containing `{{#...#}}`\
+          \ placeholders.\n\n    Returns:\n        dict: Contains 'safe_text' that\
+          \ can be fed to the extractor node.\n    \"\"\"\n\n    # Regex to match\
+          \ all {{#...#}} placeholders\n    pattern = r\"(\\{\\{#.*?#\\}\\})\"\n\n\
+          \    # Escape all placeholders by replacing { and } with \\{ and \\}\n \
+          \   def escape_placeholder(match):\n        placeholder = match.group(1)\n\
+          \        return placeholder.replace(\"{\", \"\\\\{\").replace(\"}\", \"\\\
+          \\}\")\n\n    safe_text = re.sub(pattern, escape_placeholder, dsl_text)\n\
+          \n    return {\n        \"safe_text\": safe_text\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          safe_text:
+            children: null
+            type: string
+        selected: false
+        title: Prevent Escape Text
+        type: code
+        variables:
+        - value_selector:
+          - '1756824342559'
+          - body
+          value_type: string
+          variable: dsl_text
+      height: 54
+      id: '1760264519999'
+      position:
+        x: 603.0339104181248
+        y: 647.9770719279763
+      positionAbsolute:
+        x: 603.0339104181248
+        y: 647.9770719279763
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -1278.2731004904542
-      y: 88.6868466286557
-      zoom: 0.7863388348305532
+      x: -160.11929167910307
+      y: -61.21478971209331
+      zoom: 0.7043968536427575
