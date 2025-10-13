@@ -51,7 +51,7 @@ No external script is needed — all processing is handled automatically within 
 
 ## ✅ Features
 - Fully customizable sentiment logic via **query input**  
-- Supports emotion detection for text from multiple data sources  
+- Supports reddit as its source
 - Built using **DSL templates** for flexibility and control  
 - Instant publishing and ready-to-use app  
 
