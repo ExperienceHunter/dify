@@ -60,4 +60,4 @@ python image_annotation_flask.py
 
 ## 📂 Next Steps
 - Modify the query to experiment with different detection tasks.  
-- Explore other templates like [🤖 Chatbot](../chatbot/README.md).  
+- Explore other templates like [🤖 Chatbot](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Chatbot.md).  
