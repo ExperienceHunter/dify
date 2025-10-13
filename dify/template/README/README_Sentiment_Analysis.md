@@ -44,9 +44,6 @@ No external script is needed — all processing is handled automatically within 
 💬 *Execution Result*  
 ![Step 3a](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/SentimentAnalysis_Image_3.png)
 
-💬 *Sentiment Report Output*  
-![Step 3b](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/SentimentAnalysis_Image_4.png)
-
 ---
 
 ## ✅ Features
@@ -60,4 +57,4 @@ No external script is needed — all processing is handled automatically within 
 ## 📂 Next Steps
 - Modify the query to experiment with different sentiment analysis tasks.  
 - Try analyzing product reviews, public reactions, or user feedback.  
-- Explore other templates like [🖼️ Image Detector](../image_detector/README.md) or [🤖 Chatbot](../chatbot/README.md).  
+- Explore other templates like [🖼️ Image Detector](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Image_Detector.md) or [🤖 Chatbot](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Chatbot.md).  
