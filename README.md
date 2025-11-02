@@ -55,3 +55,10 @@ I have also created ready-to-use templates that demonstrate how to build apps wi
 
 - 🖼️ **Image Detector Template** – An app template for visual object detection with image inputs and outputs.  
   [View README](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Image_Detector.md)
+
+- 💬 **Sentiment Analysis Template** – A text analysis app that detects user sentiment (positive, negative, neutral) using LLM-powered classification.
+  [View README](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Sentiment_Analysis.md)
+
+- 📚 **Knowledge Database Template** – A knowledge management app that allows users to upload, store, and query documents through AI retrieval.
+  [View README](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/README_Knowledge_Database.md)
+
