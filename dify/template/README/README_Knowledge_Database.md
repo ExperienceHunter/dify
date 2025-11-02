@@ -59,7 +59,10 @@ All document processing, embedding, and indexing are handled automatically withi
 
 💬 *Example Result:*  
 > **Question:** What are the refund policies in the company handbook?  
-> **Answer:** The handbook states that refunds are processed within 7 business days for valid claims, with approval from the finance department.  
+> **Answer:** The handbook states that refunds are processed within 7 business days for valid claims, with approval from the finance department.
+> 
+💬 *Execution Result*  
+![Step 3a](https://github.com/ExperienceHunter/dify/blob/main/dify/template/README/Images/KnowledgeDatabase_Image_4.png)
 
 ---
 
