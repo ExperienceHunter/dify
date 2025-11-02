@@ -1,0 +1,538 @@
+app:
+  description: This app allows the user to upload file into database and use it as
+    a ground truth.
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: Knowledge Database Template
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.2.7@b8a04c0155eb3b9d43ed1199b4387e7f67ef75ad63fcec466eab31a726e2c3a0
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: llm
+        targetType: answer
+      id: llm-answer
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1762070475143-source-1762070679449-target
+      source: '1762070475143'
+      sourceHandle: source
+      target: '1762070679449'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 1762070679449-true-1762070726778-target
+      source: '1762070679449'
+      sourceHandle: 'true'
+      target: '1762070726778'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1762070726778-source-1762070828892-target
+      source: '1762070726778'
+      sourceHandle: source
+      target: '1762070828892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1762070828892-source-1762070884569-target
+      source: '1762070828892'
+      sourceHandle: source
+      target: '1762070884569'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: http-request
+      id: 1762070884569-source-1762070925467-target
+      source: '1762070884569'
+      sourceHandle: source
+      target: '1762070925467'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 1762070925467-source-1762071004801-target
+      source: '1762070925467'
+      sourceHandle: source
+      target: '1762071004801'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1762070679449-false-1762071129560-target
+      source: '1762070679449'
+      sourceHandle: 'false'
+      target: '1762071129560'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1762071129560-source-llm-target
+      source: '1762071129560'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: Uploads
+          max_length: 5
+          options: []
+          required: false
+          type: file-list
+          variable: Uploads
+      height: 90
+      id: '1762070475143'
+      position:
+        x: -103
+        y: 282
+      positionAbsolute:
+        x: -103
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1762071129560'
+          - result
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-pro
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 2dd10d7d-ed3f-4363-aad8-2f3771efbccc
+          role: system
+          text: "You are a helpful assistant. \nUse the following context as your\
+            \ learned knowledge, inside <context></context> XML tags.\n<context>\n\
+            {{#context#}}\n</context>\nWhen answer to user:\n- If you don't know,\
+            \ just say that you don't know.\n- If you don't know when you are not\
+            \ sure, ask for clarification.\nAvoid mentioning that you obtained the\
+            \ information from the context.\nAnd answer according to the language\
+            \ of the user's question."
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: llm
+      position:
+        x: 870.5129568457851
+        y: 525.744845407347
+      positionAbsolute:
+        x: 870.5129568457851
+        y: 525.744845407347
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#llm.text#}}'
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 105
+      id: answer
+      position:
+        x: 1188.6656363420475
+        y: 525.744845407347
+      positionAbsolute:
+        x: 1188.6656363420475
+        y: 525.744845407347
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 0f136610-e4d6-4dff-942f-ac8fa89b4aeb
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1762070475143'
+            - Uploads
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 126
+      id: '1762070679449'
+      position:
+        x: 219
+        y: 282
+      positionAbsolute:
+        x: 219
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-3208
+            key: ''
+            type: text
+            value: "{\n  \"email\": \"xzakwanzahidx@gmail.com\",\n  \"password\":\
+              \ \"Password123\"\n}"
+          type: json
+        desc: ''
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Login
+        type: http-request
+        url: http://docker-api-1:5001/console/api/login
+        variables: []
+      height: 139
+      id: '1762070726778'
+      position:
+        x: 545.9701675129795
+        y: 236.29784148612242
+      positionAbsolute:
+        x: 545.9701675129795
+        y: 236.29784148612242
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(credential: str) -> dict:\n    # Parse the\
+          \ JSON string from the login node\n    body_json = json.loads(credential)\n\
+          \    \n    # Extract the access token\n    access_token = body_json.get(\"\
+          data\", {}).get(\"access_token\", \"\")\n    \n    return {\n        \"\
+          access_token\": access_token\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          access_token:
+            children: null
+            type: string
+        selected: false
+        title: Credential
+        type: code
+        variables:
+        - value_selector:
+          - '1762070726778'
+          - body
+          value_type: string
+          variable: credential
+      height: 54
+      id: '1762070828892'
+      position:
+        x: 825.427378180174
+        y: 236.29784148612242
+      positionAbsolute:
+        x: 825.427378180174
+        y: 236.29784148612242
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-2972
+            key: ''
+            type: text
+            value: "{\n  \"name\": \"My KB\",\n  \"permission\": \"only_me\",\n  \"\
+              indexing_technique\": \"high_quality\"\n}\n"
+          type: json
+        desc: ''
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: true
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Create DB
+        type: http-request
+        url: http://docker-api-1:5001/v1/datasets
+        variables: []
+      height: 139
+      id: '1762070884569'
+      position:
+        x: 1129.427378180174
+        y: 236.29784148612242
+      positionAbsolute:
+        x: 1129.427378180174
+        y: 236.29784148612242
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config:
+            api_key: dataset-DR8QH038gADdWAStxuzkWHJJ
+            type: bearer
+          type: api-key
+        body:
+          data:
+          - id: key-value-3057
+            key: data
+            type: text
+            value: "{\n  \"indexing_technique\": \"high_quality\",\n  \"process_rule\"\
+              : {\n    \"rules\": {\n      \"pre_processing_rules\": [\n        {\
+              \ \"id\": \"remove_extra_spaces\", \"enabled\": true },\n        { \"\
+              id\": \"remove_urls_emails\", \"enabled\": true }\n      ],\n      \"\
+              segmentation\": { \"separator\": \"###\", \"max_tokens\": 500 }\n  \
+              \  },\n    \"mode\": \"custom\"\n  },\n  \"embedding_model\": \"embedding-001\"\
+              ,\n  \"embedding_model_provider\": \"langgenius/gemini/google\"\n}\n"
+          - file:
+            - '1762070475143'
+            - Uploads
+            id: key-value-3090
+            key: file
+            type: file
+            value: ''
+          type: form-data
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Upload Files
+        type: http-request
+        url: http://docker-api-1:5001/v1/datasets/6269a6ec-8d26-4506-9236-0306c91c4d36/document/create-by-file
+        variables: []
+      height: 171
+      id: '1762070925467'
+      position:
+        x: 1432.1356524258156
+        y: 236.29784148612242
+      positionAbsolute:
+        x: 1432.1356524258156
+        y: 236.29784148612242
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: Your file has been successfully uploaded.
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 118
+      id: '1762071004801'
+      position:
+        x: 1737.427378180174
+        y: 236.29784148612242
+      positionAbsolute:
+        x: 1737.427378180174
+        y: 236.29784148612242
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 2uS8f26EKrlaB4Zgh2DDIciY9R+NIJNk5yjNEUHe69kUq8ddBsO95i6oZFyJgSTM
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: gemini-embedding-exp-03-07
+              embedding_provider_name: langgenius/gemini/google
+              vector_weight: 1
+        query_variable_selector:
+        - '1762070475143'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval
+        type: knowledge-retrieval
+      height: 92
+      id: '1762071129560'
+      position:
+        x: 545.9701675129795
+        y: 525.744845407347
+      positionAbsolute:
+        x: 545.9701675129795
+        y: 525.744845407347
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -269.66246370017905
+      y: -46.65295067965714
+      zoom: 0.7741581342835941
