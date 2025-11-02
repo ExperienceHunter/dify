@@ -38,7 +38,7 @@ No external script is needed — all processing is handled automatically within 
 
 ### 3. Use Your Sentiment Analyzer
 - Enter a topic, keyword, or phrase to analyze (e.g., *“customer reviews about product X”*).  
-- The app will automatically collect relevant text data from various sources (e.g., **Reddit**, **X/Twitter**, **Google reviews**, or **news articles**).  
+- The app will automatically collect relevant text data from **Reddit**.  
 - It will then analyze the **sentiment** and return the results in structured form.
 
 💬 *Execution Result*  
