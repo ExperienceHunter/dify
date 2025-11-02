@@ -299,6 +299,7 @@ workflow:
           - ChatBot
           - Image Detector
           - Sentiment Analysis
+          - None
           required: true
           type: select
           variable: AI_Powered_Apps
@@ -309,7 +310,15 @@ workflow:
           required: true
           type: select
           variable: Business_Utility_Apps
-      height: 142
+        - label: Content_and_Knowledge
+          max_length: 48
+          options:
+          - Knowledge Database
+          - None
+          required: true
+          type: select
+          variable: Content_and_Knowledge
+      height: 168
       id: '1756820253386'
       position:
         x: 225.42410580051887
@@ -317,7 +326,7 @@ workflow:
       positionAbsolute:
         x: 225.42410580051887
         y: 294
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -463,10 +472,10 @@ workflow:
       id: '1757075547683'
       position:
         x: 1207.5136477125868
-        y: 301.35948772796354
+        y: 301.94696509542206
       positionAbsolute:
         x: 1207.5136477125868
-        y: 301.35948772796354
+        y: 301.94696509542206
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -919,6 +928,11 @@ workflow:
             value:
             - '1756820253386'
             - Business_Utility_Apps
+          Content_and_Knowledge:
+            type: variable
+            value:
+            - '1756820253386'
+            - Content_and_Knowledge
         type: tool
       height: 54
       id: '1757948993151'
@@ -1161,6 +1175,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: -160.11929167910307
-      y: -61.21478971209331
+      x: -756.9966782250533
+      y: -45.71295127613257
       zoom: 0.7043968536427575
