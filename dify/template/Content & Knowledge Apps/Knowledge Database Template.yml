@@ -122,18 +122,6 @@ workflow:
         isInIteration: false
         isInLoop: false
         sourceType: http-request
-        targetType: http-request
-      id: 1762070884569-source-1762070925467-target
-      source: '1762070884569'
-      sourceHandle: source
-      target: '1762070925467'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        isInLoop: false
-        sourceType: http-request
         targetType: answer
       id: 1762070925467-source-1762071004801-target
       source: '1762070925467'
@@ -166,6 +154,30 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1762070884569-source-1762594954173-target
+      source: '1762070884569'
+      sourceHandle: source
+      target: '1762594954173'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1762594954173-source-1762070925467-target
+      source: '1762594954173'
+      sourceHandle: source
+      target: '1762070925467'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -185,13 +197,19 @@ workflow:
           required: false
           type: file-list
           variable: Uploads
-      height: 90
+        - label: Database_Name
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: Database_Name
+      height: 116
       id: '1762070475143'
       position:
-        x: -103
+        x: -104.2917257543582
         y: 282
       positionAbsolute:
-        x: -103
+        x: -104.2917257543582
         y: 282
       selected: false
       sourcePosition: right
@@ -241,10 +259,10 @@ workflow:
       height: 90
       id: llm
       position:
-        x: 870.5129568457851
+        x: 843.3867160042632
         y: 525.744845407347
       positionAbsolute:
-        x: 870.5129568457851
+        x: 843.3867160042632
         y: 525.744845407347
       selected: false
       sourcePosition: right
@@ -261,10 +279,10 @@ workflow:
       height: 105
       id: answer
       position:
-        x: 1188.6656363420475
+        x: 1129.427378180174
         y: 525.744845407347
       positionAbsolute:
-        x: 1188.6656363420475
+        x: 1129.427378180174
         y: 525.744845407347
       selected: false
       sourcePosition: right
@@ -368,10 +386,10 @@ workflow:
       height: 54
       id: '1762070828892'
       position:
-        x: 825.427378180174
+        x: 843.3867160042632
         y: 236.29784148612242
       positionAbsolute:
-        x: 825.427378180174
+        x: 843.3867160042632
         y: 236.29784148612242
       selected: false
       sourcePosition: right
@@ -380,15 +398,17 @@ workflow:
       width: 244
     - data:
         authorization:
-          config: null
-          type: no-auth
+          config:
+            api_key: dataset-DR8QH038gADdWAStxuzkWHJJ
+            type: bearer
+          type: api-key
         body:
           data:
           - id: key-value-2972
             key: ''
             type: text
-            value: "{\n  \"name\": \"My KB\",\n  \"permission\": \"only_me\",\n  \"\
-              indexing_technique\": \"high_quality\"\n}\n"
+            value: "{\n  \"name\": \"{{#1762070475143.Database_Name#}}\",\n  \"permission\"\
+              : \"only_me\",\n  \"indexing_technique\": \"high_quality\"\n}\n"
           type: json
         desc: ''
         headers: Content-Type:application/json
@@ -398,7 +418,7 @@ workflow:
           max_retries: 3
           retry_enabled: true
           retry_interval: 100
-        selected: true
+        selected: false
         ssl_verify: true
         timeout:
           max_connect_timeout: 0
@@ -463,15 +483,15 @@ workflow:
           max_write_timeout: 0
         title: Upload Files
         type: http-request
-        url: http://docker-api-1:5001/v1/datasets/6269a6ec-8d26-4506-9236-0306c91c4d36/document/create-by-file
+        url: http://docker-api-1:5001/v1/datasets/{{#1762594954173.dataset_id#}}/document/create-by-file
         variables: []
-      height: 171
+      height: 174
       id: '1762070925467'
       position:
-        x: 1432.1356524258156
+        x: 1732.1356524258156
         y: 236.29784148612242
       positionAbsolute:
-        x: 1432.1356524258156
+        x: 1732.1356524258156
         y: 236.29784148612242
       selected: false
       sourcePosition: right
@@ -488,10 +508,10 @@ workflow:
       height: 118
       id: '1762071004801'
       position:
-        x: 1737.427378180174
+        x: 2037.427378180174
         y: 236.29784148612242
       positionAbsolute:
-        x: 1737.427378180174
+        x: 2037.427378180174
         y: 236.29784148612242
       selected: false
       sourcePosition: right
@@ -532,7 +552,51 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "import json\n\ndef main(**kwargs) -> dict:\n    \"\"\"\n    Extract\
+          \ the dataset ID (and optionally name) from a dataset creation response.\n\
+          \    \n    Args:\n        kwargs: workflow inputs; expects 'input' key containing\
+          \ the JSON string.\n        \n    Returns:\n        dict: contains 'dataset_id'\
+          \ and 'dataset_name'.\n    \"\"\"\n    # Get the input string\n    input_str\
+          \ = kwargs.get(\"input\", \"\")\n    \n    if not input_str:\n        return\
+          \ {\"dataset_id\": \"\", \"dataset_name\": \"\"}\n\n    # Parse the JSON\
+          \ string (strip whitespace/newline just in case)\n    parsed_body = json.loads(input_str.strip())\n\
+          \n    # Extract ID and name\n    dataset_id = parsed_body.get(\"id\", \"\
+          \")\n    dataset_name = parsed_body.get(\"name\", \"\")\n\n    return {\n\
+          \        \"dataset_id\": dataset_id,\n        \"dataset_name\": dataset_name\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          dataset_id:
+            children: null
+            type: string
+          dataset_name:
+            children: null
+            type: string
+        selected: false
+        title: Get Dataset ID
+        type: code
+        variables:
+        - value_selector:
+          - '1762070884569'
+          - body
+          value_type: string
+          variable: input
+      height: 54
+      id: '1762594954173'
+      position:
+        x: 1432.1356524258156
+        y: 236.29784148612242
+      positionAbsolute:
+        x: 1432.1356524258156
+        y: 236.29784148612242
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -269.66246370017905
-      y: -46.65295067965714
+      x: -709.4908299277987
+      y: 4.3927739771309575
       zoom: 0.7741581342835941
